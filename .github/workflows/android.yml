@@ -22,4 +22,6 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Build APK
-        run: gradle assembleDebug
+        run: |
+          cd android_app
+          gradle assembleDebug

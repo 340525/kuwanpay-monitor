@@ -12,15 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Show directory structure
-        run: |
-          echo "=== Root directory ==="
-          ls -la
-          echo "=== android_app directory ==="
-          ls -la android_app/ || echo "android_app not found"
-          echo "=== Current path ==="
-          pwd
-
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -32,5 +23,5 @@ jobs:
 
       - name: Build APK
         run: |
-          cd android_app
-          gradle build --stacktrace
+          chmod +x gradlew
+          ./gradlew assembleDebug
